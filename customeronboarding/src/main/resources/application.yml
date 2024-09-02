@@ -1,0 +1,33 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  application:
+    name: customeronboarding
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customerdb
+    driver: org.postgresql.Driver
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update  # Or create, create-drop, validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+rabbitmq:
+  exchange: onboarding
+  queue:
+    iprs:
+      name: iprs-queue
+      key: iprs-queue
+    crb:
+      name: crb-queue
+      key: crb-queue
+    kra:
+      name: kra-queue
+      key: kra-queue
